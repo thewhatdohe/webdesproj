@@ -1,0 +1,139 @@
+/* ========== GLOBAL STYLES ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6fb;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: linear-gradient(90deg, #1a2a6c, #1e3c92);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* BRAND SECTION */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: #d0dcff;
+}
+
+/* NAV LINKS */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav a {
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  color: #b3e5ff;
+  transform: translateY(-2px);
+}
+
+/* ========== MAIN SECTION ========== */
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+main h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+main h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* BUTTON CONTAINER */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.buttons {
+  background-color: #43a047;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.buttons:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .brand {
+    justify-content: center;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
