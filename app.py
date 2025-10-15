@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from time import sleep
 
 app = Flask(__name__)
 
@@ -26,6 +25,3 @@ def chemistry():
 @app.route("/survey")
 def survey():
     return render_template("/survey.html")
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)

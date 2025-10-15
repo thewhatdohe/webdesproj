@@ -1,29 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------- Bot Express Server Endpoint -----------------
-  const botEndpoint = "https://86308b8a9082.ngrok-free.app/event"; // replace with your ngrok URL or deployed domain
-
-  // ----------------- Helper to send data to bot server -----------------
-  function sendStat(eventData) {
-    fetch(botEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(eventData)
-    }).catch(err => console.error("Error sending stat:", err));
-  }
-
   // ----------------- Page views -----------------
-  const pages = {
-    "/": "home",
-    "/subjects/webdesign": "web design",
-    "/subjects/robotics": "robotics",
-    "/subjects/math": "math",
-    "/subjects/chemistry": "chemistry",
-    "/survey": "survey"
-  };
-
-  const currentPath = window.location.pathname.toLowerCase();
-  const pageName = pages[currentPath] || "unknown";
-  sendStat({ event: "page_view", page: pageName });
+  // (Removed Discord bot analytics tracking)
 
   // ----------------- Konami code -----------------
   const konamiCode = [38,38,40,40,37,39,37,39,66,65];
@@ -34,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       konamiIndex++;
       if (konamiIndex === konamiCode.length) {
         konamiIndex = 0;
-        sendStat({ event: "konami" });
-        triggerConfetti(); // keep confetti effect
+        triggerConfetti(); // Confetti effect
       }
     } else {
       konamiIndex = 0;
@@ -49,12 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (img) {
       img.style.cursor = "pointer";
       img.addEventListener("click", () => {
-        sendStat({ event: "lightbox_click", image: id });
+        // Simple lightbox
+        const overlay = document.createElement("div");
+        overlay.style.cssText = `
+          position: fixed; top:0; left:0; width:100%; height:100%;
+          background: rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:10000;
+        `;
+        const largeImg = document.createElement("img");
+        largeImg.src = img.src;
+        largeImg.style.maxWidth = "90%";
+        largeImg.style.maxHeight = "90%";
+        largeImg.style.borderRadius = "8px";
+        overlay.appendChild(largeImg);
+
+        overlay.addEventListener("click", () => overlay.remove());
+
+        document.body.appendChild(overlay);
       });
     }
   });
 
-  // ================= GUIDE POPUP (unchanged from your previous code) =================
+  // ================= GUIDE POPUP =================
   if (!localStorage.getItem("guideDismissed")) {
     const popup = document.createElement("div");
     popup.id = "guidePopup";
@@ -149,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", () => popup.remove());
   }
 
-  // ================= KONAMI CONFETTI (unchanged) =================
+  // ================= KONAMI CONFETTI =================
   function triggerConfetti() {
     const confettiCount = 150;
     const colors = ['#f94144','#f3722c','#f9c74f','#90be6d','#43aa8b','#577590','#277da1'];
