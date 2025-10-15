@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 Flask==3.1.2
 gunicorn==21.2.0
-=======
-Flask==3.1.2
-gunicorn==21.2.0
->>>>>>> 215acb40225749bb7c2df7b6be1c1a1b021419e0
