@@ -5,5 +5,3 @@
 
 Please visit the online website at https://www.webdesign-proj.site/
 
-Please visit the online website at https://example.com/
-
