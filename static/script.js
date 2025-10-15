@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------- Page views -----------------
-  // (Removed Discord bot analytics tracking)
 
   // ----------------- Konami code -----------------
   const konamiCode = [38,38,40,40,37,39,37,39,66,65];
@@ -18,14 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ----------------- Lightbox clicks -----------------
-  const lightboxImages = ["img1","img2","img3","img4","img5"]; // your image IDs
+  // ----------------- Lightbox -----------------
+  const lightboxImages = ["img1","img2","img3","img4","img5"];
   lightboxImages.forEach(id => {
     const img = document.getElementById(id);
     if (img) {
       img.style.cursor = "pointer";
       img.addEventListener("click", () => {
-        // Simple lightbox
         const overlay = document.createElement("div");
         overlay.style.cssText = `
           position: fixed; top:0; left:0; width:100%; height:100%;
@@ -37,65 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
         largeImg.style.maxHeight = "90%";
         largeImg.style.borderRadius = "8px";
         overlay.appendChild(largeImg);
-
         overlay.addEventListener("click", () => overlay.remove());
-
         document.body.appendChild(overlay);
       });
     }
   });
 
-  // ================= GUIDE POPUP =================
+  // ----------------- Guide popup -----------------
   if (!localStorage.getItem("guideDismissed")) {
     const popup = document.createElement("div");
     popup.id = "guidePopup";
     popup.style.cssText = `
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center;
+      z-index:9999;
     `;
 
     popup.innerHTML = `
-      <div style="
-        position: relative;
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        max-width: 450px;
-        text-align: center;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      ">
-        <span id="closeGuideBtn" style="
-          position: absolute;
-          top: 12px;
-          right: 15px;
-          font-size: 22px;
-          font-weight: bold;
-          color: #555;
-          cursor: pointer;
-          transition: color 0.2s ease, transform 0.2s ease;
-        ">&times;</span>
-
-        <h2 style="margin-top: 10px;">Welcome!</h2>
-        <p id="guideText" style="font-size: 16px;">
-          This short guide will help you understand how to use the site.
-        </p>
-
-        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-          <button id="nextGuideBtn" style="
-            background: #007BFF; color: white; border: none;
-            padding: 10px 18px; border-radius: 6px; cursor: pointer;
-          ">Next</button>
-
-          <button id="skipGuideBtn" style="
-            background: #6c757d; color: white; border: none;
-            padding: 10px 18px; border-radius: 6px; cursor: pointer;
-          ">Do Not Show Again</button>
+      <div style="position: relative; background:white; padding:25px; border-radius:12px;
+                  max-width:450px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.3);">
+        <span id="closeGuideBtn" style="position:absolute; top:12px; right:15px; font-size:22px; font-weight:bold;
+              color:#555; cursor:pointer; transition:color 0.2s ease, transform 0.2s ease;">&times;</span>
+        <h2 style="margin-top:10px;">Welcome!</h2>
+        <p id="guideText" style="font-size:16px;">This short guide will help you understand how to use the site.</p>
+        <div style="margin-top:20px; display:flex; justify-content:center; gap:10px;">
+          <button id="nextGuideBtn" style="background:#007BFF;color:white;border:none;padding:10px 18px;
+                  border-radius:6px;cursor:pointer;">Next</button>
+          <button id="skipGuideBtn" style="background:#6c757d;color:white;border:none;padding:10px 18px;
+                  border-radius:6px;cursor:pointer;">Do Not Show Again</button>
         </div>
       </div>
     `;
@@ -119,9 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentStep++;
       if (currentStep < guideSteps.length) {
         guideText.textContent = guideSteps[currentStep];
-      } else {
-        popup.remove();
-      }
+      } else popup.remove();
     });
 
     skipBtn.addEventListener("click", () => {
@@ -130,17 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     closeBtn.addEventListener("mouseenter", () => {
-      closeBtn.style.color = "#000";
-      closeBtn.style.transform = "scale(1.1)";
+      closeBtn.style.color = "#000"; closeBtn.style.transform = "scale(1.1)";
     });
     closeBtn.addEventListener("mouseleave", () => {
-      closeBtn.style.color = "#555";
-      closeBtn.style.transform = "scale(1)";
+      closeBtn.style.color = "#555"; closeBtn.style.transform = "scale(1)";
     });
     closeBtn.addEventListener("click", () => popup.remove());
   }
 
-  // ================= KONAMI CONFETTI =================
+  // ----------------- Confetti -----------------
   function triggerConfetti() {
     const confettiCount = 150;
     const colors = ['#f94144','#f3722c','#f9c74f','#90be6d','#43aa8b','#577590','#277da1'];
@@ -167,23 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
       confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
 
       confettiPieces.push({
-        el: confetti,
-        x: xStart,
-        y: yStart,
-        rotation: Math.random() * 360,
-        rotationSpeed: Math.random() * 10 - 5,
-        vx: (fromLeft ? 1 : -1) * (Math.random() * 2 + 1),
-        vy: -(Math.random() * 7 + 6),
-        gravity: 0.05 + Math.random() * 0.05,
-        sway: Math.random() * 0.05 + 0.01,
-        swayAngle: Math.random() * Math.PI * 2,
-        life: 0
+        el: confetti, x: xStart, y: yStart, rotation: Math.random()*360,
+        rotationSpeed: Math.random()*10-5, vx: (fromLeft?1:-1)*(Math.random()*2+1),
+        vy: -(Math.random()*7+6), gravity:0.05+Math.random()*0.05,
+        sway: Math.random()*0.05+0.01, swayAngle: Math.random()*Math.PI*2,
+        life:0
       });
     }
 
     const fadeDuration = 4000;
     function animate() {
-      confettiPieces.forEach((c, i) => {
+      confettiPieces.forEach((c,i) => {
         c.vy += c.gravity;
         c.x += c.vx + Math.sin(c.swayAngle) * 1.5;
         c.y += c.vy;
@@ -191,22 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
         c.swayAngle += c.sway;
 
         c.life += 16;
-        const fade = Math.max(0, 1 - c.life / fadeDuration);
+        const fade = Math.max(0, 1 - c.life/fadeDuration);
         c.el.style.opacity = fade;
-
         c.el.style.top = c.y + 'px';
         c.el.style.left = c.x + 'px';
         c.el.style.transform = `rotate(${c.rotation}deg)`;
-
-        if (fade <= 0) {
-          c.el.remove();
-          confettiPieces.splice(i, 1);
-        }
+        if(fade<=0){ c.el.remove(); confettiPieces.splice(i,1); }
       });
-
-      if (confettiPieces.length > 0) requestAnimationFrame(animate);
+      if(confettiPieces.length>0) requestAnimationFrame(animate);
     }
-
     requestAnimationFrame(animate);
   }
 });
