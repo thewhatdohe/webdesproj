@@ -1,37 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Favorite Subjects</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
-
-  <body>
-    <header class="header">
-      <div class="brand">
-        <img src="/static/images/logo.svg" alt="logo" class="logo" />
-        <div>
-          <h1>Faisal's Portfolio</h1>
-          <div class="subtitle">Grade 10 • Web Design</div>
-        </div>
-      </div>
-
-      <nav class="navlinks">
-        <a href="/templates/index.html">Home</a>
-        <a href="/templates/subjects/webdesign.html">Web Design</a>
-        <a href="/templates/subjects/robotics.html">Robotics</a>
-        <a href="/templates/subjects/math.html">Math</a>
-        <a href="/templates/subjects/chemistry.html">Chemistry</a>
-        <a href="#" id="open-survey">Survey</a>
-      </nav>
-    </header>
+<!--AFIF-->
 
 
-    <!--CONTENT-->
-    <main>
-      <h1 class="main-menu-text">Web Design Midterm Project</h1>
-      <h3 class="main-menu-text">Choose a subject above to continue</h3>
-    </main>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Web Design - Web Design Portfolio{% endblock %}
+
+{% block content %}
+<h1 class="wd-main-title">Web Design</h1>
+<h3 class="wd-main-sub">Development through HTML, CSS, and JavaScript</h3>
+
+<br><hr><br>
+
+<h2 class="webdesign-def">What is web design?</h2>
+
+<br>
+
+<p class="wd-info-1">
+    Web design is a subject that involves the development of websites. Sites like Youtube, Facebook, and even Google Classroom run on 3 languages:
+</p>
+
+<br>
+
+<div class="webdesign-list">
+    <ol>
+        <li><strong>HTML:</strong> The language that displays text, colors, and images.</li>
+        <li><strong>CSS:</strong> The language that styles the HTML data, making the website more visually appealing.</li>
+        <li><strong>JavaScript:</strong> The backend language that focuses on the website's functions.</li>
+    </ol>
+</div>
+
+<br>
+
+<img src="/static/images/hcj.png" alt="webdes" class="-img clickable-image" id="img2">
+
+<br><hr><br>
+
+<h2 class="webdesign-info">Key Concepts:</h2>
+
+<br>
+
+<div class="webdesign-list">
+  <ol>
+    <li><strong>User Interface (UI) Design:</strong> Focuses on creating visually appealing layouts that are easy for users to interact with.</li>
+    <li><strong>Accessibility:</strong> Ensures the website can be used by everyone, including people with disabilities, through proper structure and tags.</li>
+    <li><strong>Web Usability:</strong> Keeps the design simple and clear so visitors can easily find what they need and understand the content.</li>
+    <li><strong>Information Architecture:</strong> Organizes website content and pages logically to make navigation easy for both users and search engines.</li>
+    <li><strong>Web Security:</strong> Protects user data and the site from attacks using HTTPS, input validation, and regular updates.</li>
+  </ol>
+</div>
+
+<br><hr><br>
+
+
+<h2 class="webdesign-opinion-title">Why do I prefer web design?</h2>
+
+<br>
+
+<p class="webdesign-opinion">
+  In my opinion, web design is one of my favorite subjects as a 10th grader, because it's a subjective field for everyone, as you can add custom designs to your wensite. I learnt a lot on how to develop sites that can soon help with my career. Overall, web design is a fun subject because of its freedom of choice, and it also sparks creativity.
+</p>
+{% endblock %}

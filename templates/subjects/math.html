@@ -1,37 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Favorite Subjects</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
+<!--FAISAL-->
 
-  <body>
-    <header class="header">
-      <div class="brand">
-        <img src="/static/images/logo.svg" alt="logo" class="logo" />
-        <div>
-          <h1>Faisal's Portfolio</h1>
-          <div class="subtitle">Grade 10 • Web Design</div>
-        </div>
-      </div>
+{% extends "base.html" %}
 
-      <nav class="navlinks">
-        <a href="/templates/index.html">Home</a>
-        <a href="/templates/subjects/webdesign.html">Web Design</a>
-        <a href="/templates/subjects/robotics.html">Robotics</a>
-        <a href="/templates/subjects/math.html">Math</a>
-        <a href="/templates/subjects/chemistry.html">Chemistry</a>
-        <a href="#" id="open-survey">Survey</a>
-      </nav>
-    </header>
+{% block title %}Math - Web Design Portfolio{% endblock %}
 
+{% block content %}
+<h1 class="main-menu-text">Math</h1>
 
-    <!--CONTENT-->
-    <main>
-      <h1 class="main-menu-text">Web Design Midterm Project</h1>
-      <h3 class="main-menu-text">Choose a subject above to continue</h3>
-    </main>
-  </body>
-</html>
+<br><hr><br>
+
+<p class="main-menu-text">
+Math is an amazing subject I always look forward to every day. We are beginning to learn about points, lines, and planes; these 3 objects define how we live and how engineers build structures. There are formulas that find the distance between two points on a plane and the midpoint between two points on a plane. The reason I enjoy math is because if your answer is mathematically right, one cannot argue against it — there is proof it’s correct, unlike subjects like English where it’s based on opinions and sources like the New York Times.
+</p>
+
+<br>
+
+<p class="main-menu-text">
+One big project I am really proud of is the geometry portfolio I created in HTML and CSS. You can find the link to it here:<br><br>
+<a href="https://geometryportfolio.com/" target="_blank">Geometry Portfolio</a><br><br>
+<img src="{{ url_for('static', filename='images/geoport.png') }}" 
+     alt="Chemistry Lab"
+     class="-img clickable-image"
+     id="img4">
+
+</p>
+
+<br><hr><br>
+
+<h2 class="math-title-1">What is Geometry?</h2>
+
+<p class="math-info-1">
+Geometry is the study of shapes, lines, and space. It starts with three basic ideas — points, lines, and planes — which we accept without formal definition. A point represents a location, a line extends infinitely in both directions, and a plane is a flat surface stretching forever. Using proper notation and clear labeling is key to avoiding mistakes.
+</p>
+
+<br>
+
+<h2 class="math-title-2">Segments and Midpoints</h2>
+
+<p class="math-info-2">
+A segment is a finite piece of a line with two endpoints. If point B lies between points A and C, the Segment Addition Postulate tells us AB + BC = AC. Congruent segments have equal lengths (≅), and a segment bisector passes through the midpoint of a segment.
+</p>
+
+<br>
+
+<h2 class="math-title-3">Distance Between Points</h2>
+
+<p class="math-info-3">
+The distance formula calculates how far apart two points are: <br>
+<strong>d = √((x₂ − x₁)² + (y₂ − y₁)²)</strong> <br>
+The midpoint formula finds the center of a segment: <br>
+<strong>M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</strong>
+</p>
+
+<br>
+
+<h2 class="math-title-4">Angles and Their Relationships</h2>
+
+<p class="math-info-4">
+Angles are formed by two rays sharing a common endpoint (vertex). Angles can be acute, right, obtuse, or straight. The Angle Addition Postulate states that if a point lies inside an angle, the sum of the two smaller angles equals the whole angle. Understanding complementary, supplementary, vertical, and linear pair angles helps solve problems and proofs.
+</p>
+
+<br>
+
+<h2 class="math-title-5">Key Takeaways</h2>
+
+<ul class="math-points-1">
+  <li>Label diagrams clearly: points, lines, planes, segments, and angles.</li>
+  <li>Use the Segment Addition Postulate: AB + BC = AC when B is between A and C.</li>
+  <li>Distance and midpoint formulas allow calculation of lengths and centers of segments.</li>
+  <li>Angles can be classified and added using the Angle Addition Postulate.</li>
+  <li>Vertical and linear pair angles have predictable relationships useful in proofs.</li>
+</ul>
+
+<br>
+
+<h2 class="math-opinion-title">Why I enjoy Math</h2>
+
+<p class="math-opinion">
+In my opinion, geometry is one of my favorite math topics because it combines logical reasoning with visual problem-solving. Working through segments, angles, and proofs strengthens critical thinking and helps me visualize relationships in space. Solving these problems accurately also improves attention to detail and mathematical rigor, which I find rewarding.
+</p>
+
+{% endblock %}

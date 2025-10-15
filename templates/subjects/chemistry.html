@@ -1,38 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Favorite Subjects</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
+<!--AFIF-->
 
-  <body>
-    <header class="header">
-      <div class="brand">
-        <img src="/static/images/logo.svg" alt="logo" class="logo" />
-        <div>
-          <h1>Faisal's Portfolio</h1>
-          <div class="subtitle">Grade 10 • Web Design</div>
-        </div>
-      </div>
+{% extends "base.html" %}
 
-      <nav class="navlinks">
-        <a href="/templates/index.html">Home</a>
-        <a href="/templates/subjects/webdesign.html">Web Design</a>
-        <a href="/templates/subjects/robotics.html">Robotics</a>
-        <a href="/templates/subjects/math.html">Math</a>
-        <a href="/templates/subjects/chemistry.html">Chemistry</a>
-        <a href="#" id="open-survey">Survey</a>
-      </nav>
-    </header>
+{% block title %}Chemistry - Web Design Portfolio{% endblock %}
 
+{% block content %}
+<h1 class="chemistry-main-title">Chemistry</h1>
+<h2 class="chemistry-main-sub">Understanding Matter and Its Interactions</h2>
 
+<br><hr><br>
 
-    <!--CONTENT-->
-    <main>
-      <h1 class="main-menu-text">Web Design Midterm Project</h1>
-      <h3 class="main-menu-text">Choose a subject above to continue</h3>
-    </main>
-  </body>
-</html>
+<h2 class="chemistry-title-1">What is Chemistry?</h2>
+
+<p class="chemistry-info-1">
+  Chemistry is the study of matter, its properties, and how substances interact and change. It connects to many other sciences, including physics, biology, and even environmental studies. Through chemistry, we can understand how materials are made, how reactions occur, and how energy is transferred during these reactions.
+</p>
+
+<br>
+
+<img src="{{ url_for('static', filename='images/atom.png') }}" 
+     alt="atom" 
+     class="-img clickable-image"
+     id="img5">
+
+<br><hr><br>
+
+<h2 class="chemistry-title-2">Atoms and Isotopes</h2>
+
+<p class="chemistry-info-2">
+  Every element is made of atoms — the smallest unit that still retains the properties of that element. Atoms contain protons, neutrons, and electrons. 
+  <br><br>
+  <strong>Isotopes</strong> are atoms of the same element with the same number of protons but different numbers of neutrons. 
+  For example, hydrogen has three isotopes: <em>protium</em> (no neutrons), <em>deuterium</em> (one neutron), and <em>tritium</em> (two neutrons).
+</p>
+
+<br>
+
+<h2 class="chemistry-title-3">The Law of Conservation of Mass</h2>
+
+<p class="chemistry-info-3">
+  The <strong>Law of Conservation of Mass</strong> states that matter cannot be created or destroyed in a chemical reaction.
+  This means the total mass of reactants equals the total mass of products. For example:
+  <br><br>
+  <strong>2H₂ + O₂ → 2H₂O</strong><br>
+  The number of hydrogen and oxygen atoms remains the same before and after the reaction — they’re just rearranged.
+</p>
+
+<br>
+
+<h2 class="chemistry-title-4">Moles and Molar Mass</h2>
+
+<p class="chemistry-info-4">
+  Chemists use the <strong>mole</strong> as a way to count particles. One mole equals 
+  <strong>6.022 × 10²³</strong> particles (Avogadro’s number).
+  The <strong>molar mass</strong> is the mass in grams of one mole of a substance, equal to its atomic or molecular mass in grams per mole.
+  <br><br>
+  For example, the molar mass of water (H₂O) is:<br>
+  (2 × 1.01) + 16.00 = <strong>18.02 g/mol</strong>.
+</p>
+
+<br>
+
+<h2 class="chemistry-title-5">Radioactive Decay</h2>
+
+<p class="chemistry-info-5">
+  Some elements have unstable nuclei that release radiation to become stable — a process called <strong>radioactive decay</strong>.
+  There are three main types of radiation:
+</p>
+
+<ul class="chemistry-points-1">
+  <li><strong>Alpha (α):</strong> Emits 2 protons and 2 neutrons.</li>
+  <li><strong>Beta (β):</strong> Emits an electron when a neutron turns into a proton.</li>
+  <li><strong>Gamma (γ):</strong> Emits energy in the form of electromagnetic radiation.</li>
+</ul>
+
+<br>
+
+<h2 class="chemistry-title-6">Key Takeaways</h2>
+
+<ul class="chemistry-points-2">
+  <li>Atoms are made of protons, neutrons, and electrons.</li>
+  <li>Isotopes are atoms with different numbers of neutrons.</li>
+  <li>The mass of reactants equals the mass of products in a chemical reaction.</li>
+  <li>The mole allows chemists to count and compare quantities of substances.</li>
+  <li>Radioactive decay changes unstable nuclei into stable ones.</li>
+</ul>
+
+<br><hr><br>
+
+<h2 class="chemistry-opinion-title">Why I Enjoy Chemistry</h2>
+
+<p class="chemistry-opinion">
+  In my opinion, chemistry is one of my favorite science subjects because it helps me understand how everything around us works — from how water forms to how energy is released in reactions. I also enjoy performing experiments in the lab, as they combine observation, precision, and logical reasoning. Chemistry feels like solving puzzles that explain how our world functions on an atomic level.
+</p>
+
+{% endblock %}

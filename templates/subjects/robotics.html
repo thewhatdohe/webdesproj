@@ -1,37 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Favorite Subjects</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
-
-  <body>
-    <header class="header">
-      <div class="brand">
-        <img src="/static/images/logo.svg" alt="logo" class="logo" />
-        <div>
-          <h1>Faisal's Portfolio</h1>
-          <div class="subtitle">Grade 10 • Web Design</div>
-        </div>
-      </div>
-
-      <nav class="navlinks">
-        <a href="/templates/index.html">Home</a>
-        <a href="/templates/subjects/webdesign.html">Web Design</a>
-        <a href="/templates/subjects/robotics.html">Robotics</a>
-        <a href="/templates/subjects/math.html">Math</a>
-        <a href="/templates/subjects/chemistry.html">Chemistry</a>
-        <a href="#" id="open-survey">Survey</a>
-      </nav>
-    </header>
+<!--AFIF-->
 
 
-    <!--CONTENT-->
-    <main>
-      <h1 class="main-menu-text">Web Design Midterm Project</h1>
-      <h3 class="main-menu-text">Choose a subject above to continue</h3>
-    </main>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Robotics - Web Design Portfolio{% endblock %}
+{% block content %}
+<h1 class="robotics-main-title">Robotics</h1>
+<h2 class="robotics-main-sub">Engineering through LEGO</h2>
+
+<br><hr><br>
+
+<h2 class="robotics-title-1">What is robotics?</h2>
+
+<p class="robotics-info-1">
+    Robotics is a very fun field in technology that excercises critical thinking
+    and the cultivation of creativity. It's very diverse in terms of availability,
+    as you don't have to be a professional engineer to make a simple robot that can,
+    for example, complete a lap around a table. Even children can learn through
+    kid-friendly sets, such as:
+</p>
+
+<br>
+
+<ul class="robotics-points-1">
+  <li><strong>Lego WeDo 2.0</strong> (discontinued)</li>
+  <li><strong>Lego SPIKE™</strong></li>
+</ul>
+
+<br>
+
+<img src="{{ url_for('static', filename='images/lego-spike.jpg') }}" 
+     alt="legospikeandwedo" 
+     class="-img clickable-image"
+     id="img3">
+
+ 
+<br>
+
+<p class="robotics-info-2">
+  LEGO's contribution to the field of robotics really helped shape the minds of children, allowing them to create unique robots, such as Milo, and even others outside the tutorial menu. It's also a fun and simple way to engage them into technology, as icon blocks and code blocks help them understand the basics. In Lego SPIKE™ Prime, if a code block or icon block is too simple for them, they can try using Python as a challenge. Overall, LEGO made robotics fun for kids and even adults and engineers.
+</p>
+
+<br>
+
+<h2 class="robotics-main-concepts-title">Key concepts:</h2>
+
+<br>
+
+<div class="robotics-list">
+  <ol>
+    <li><strong>The hub:</strong> Main source of power, supporting the robots' main functions.</li>
+    <li><strong>Motors:</strong>
+      <ul style="margin-left: 25px;">
+        <li><strong>Large motor:</strong> Uses more power to drive larger models or applying more force.</li>
+        <li><strong>Medium motor:</strong> A more compact motor capable of precise movements.</li>
+      </ul>
+    </li>
+    <li><strong>Sensors:</strong>
+      <ul style="margin-left: 25px;">
+        <li><strong>Color sensors:</strong> Detects colors and runs a specific code if a specific color has been detected.</li>
+        <li><strong>Distance sensors:</strong> Measures the distance and runs a specific code if its at a(n) exact, greater, or lesser distance.</li>
+        <li><strong>Force sensors:</strong> Detects if force is applied on it and runs the code if applied.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+
+<br><hr><br>
+
+<h2 class="robotics-opinion-title">Why do I prefer robotics?</h2>
+
+<br>
+
+<p class="robotics-opinion">
+  In my opinion, robotics is one of my favorite subjects as a 10th grader, because I learnt a lot of stuff about building and coding through simple lego pieces and tutorials. We were tasked to do certain activities that were simple, and they let me understand how to code using code blocks. Above all, robotics is one of my favorites because it helped me expand my field of creativity and independent thinking when building robots.
+</p>
+{% endblock %}
