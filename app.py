@@ -25,3 +25,6 @@ def chemistry():
 @app.route("/survey")
 def survey():
     return render_template("/survey.html")
+
+# YOU CANNOT RUN THIS PYTHON FILE NORMALLY, IT IS RAN ON THE INTERNET SO I'VE USED GUNICORN, TO VIEW THE WEBSITE PLEASE VISIT
+# WEBDESIGN-PROJ.SITE
